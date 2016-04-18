@@ -1,0 +1,39 @@
+
+<div>
+<!-- Search Menu-->
+	<search-box products="trending"></search-box>
+<!-- /.featurette (display:table) -->
+</div>
+	
+	<h2 class="text-center"><u>Recent Movies</u></h2>
+	<div class=" jumbotron">
+
+         	<slick  slides-to-show=3 slides-to-scroll=3 arrows="true" dots="true" data="trending" init-onload="true" >
+   
+            	<div  ng-repeat="trend in trending"> 
+            	<a href="#/drobe/movie/{{$index}}">
+            	<img class="slide img-responsive" ng-src="http://image.tmdb.org/t/p/w185{{trend.poster_path}}"  />
+            	</a>
+		
+    			</div>
+    		</slick>
+	</div>
+        
+
+
+
+
+
+
+<div class="bookshelf row">
+	<h2 class="text-center"><u>Trending</u></h2>
+<div infinite-scroll='loadMore()' >
+  <div class="book col-md-3" ng-repeat="product in allProducts">
+    <a href="#/drobe/{{$index}}">
+      <img ng-src="http://image.tmdb.org/t/p/w1280{{product.backdrop_path}}">
+      <h3 class="title"> #{{product.id}} </h3>
+     
+  </div>
+</div>
+
+</div>

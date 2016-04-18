@@ -1,0 +1,43 @@
+<div class="bookshelf row">
+	<h3 class="text-center" style="padding:10px"><u>{{movie.title}}</u></h3>
+  <div class="book"  >
+   <div class="row">
+   		<div class="col-sm-4">
+      		<img ng-src="http://image.tmdb.org/t/p/w1280{{movie.backdrop_path}}">
+      	</div>
+      	<div class="col-sm-8">
+      		<h4><b>Description: </b>{{movie.overview}}</h4>
+      	</div>
+   </div>  
+  </div>
+
+</div>
+
+<h2 class="text-center"><u>Characters</u></h2>
+	<div class=" jumbotron">
+
+         	<slick  slides-to-show=4 slides-to-scroll=4 arrows="true" dots="true" data="miscs" init-onload="true" >
+   
+            	<div  ng-repeat="misc in miscs"> 
+            	<a href="#/books/{{$index}}">
+            	<img class="slide img-responsive" ng-src="{{misc.thumbnailUrl}}"  />
+            	<p class ="text-center">Charachter #{{$index}}</p>
+            	</a>
+		
+    			</div>
+    		</slick>
+	</div>
+
+
+<div class="bookshelf row">
+<h2 class="text-center"><u>Trending</u></h2>
+<div infinite-scroll='loadMore()' >
+  <div class="book col-md-3" ng-repeat="misc in miscs">
+    <a href="#/books/{{$index}}">
+      <img ng-src="{{misc.thumbnailUrl}}">
+      <h3 class="title"> Product#{{misc.id}} </h3>
+     
+  </div>
+</div>
+
+</div>
